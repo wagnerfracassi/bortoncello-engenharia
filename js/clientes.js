@@ -41,9 +41,9 @@ const clientes = {
 		const div = document.getElementById("clientesContainer");
 		const container = document.createElement("div");
 		container.classList.add("cartaoClientes");
-		const {customers} = imageLibrary;
+		const {clientes} = imageLibrary;
 
-		for (const {src, alt} of customers) {
+		for (const {src, alt} of clientes) {
 			const card = document.createElement("div");
 			const img = build.img({src, alt});
 
@@ -54,3 +54,4 @@ const clientes = {
 		div.append(container);
 	},
 };
+
