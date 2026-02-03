@@ -5,102 +5,102 @@ const colorLibrary = {
 };
 
 const imageLibrary = {
-	whiteLogo: {src: "/assets/logo/logo_white.png", alt: "Logo Bortoncello Engenharia"},
+	whiteLogo: {src: "assets/logo/logo_white.png", alt: "Logo Bortoncello Engenharia"},
 	home: {
 		intro: {
 			solucoes: {
-				src: "/assets/images/solucoesEmImpermeabilizacao.webp",
+				src: "assets/images/solucoesEmImpermeabilizacao.webp",
 				alt: "Imagem representativa",
 			},
 			protecao: {
-				src: "/assets/images/protecaoSobMedida.webp",
+				src: "assets/images/protecaoSobMedida.webp",
 				alt: "Imagem representativa",
 			},
 			eficiencia: {
-				src: "/assets/images/eficienciaESeguranca.webp",
+				src: "assets/images/eficienciaESeguranca.webp",
 				alt: "Imagem representativa",
 			},
 			laudos: {
-				src: "/assets/images/laudosTecnicos.webp",
+				src: "assets/images/laudosTecnicos.webp",
 				alt: "Imagem representativa",
 			},
 		},
 		entendaComoFunciona: {
 			droplet: {
-				src: "/assets/images/droplet.webp",
+				src: "assets/images/droplet.webp",
 				alt: "Macro de uma gota de água pingando em um lago",
 			},
 		},
 		nossoTrabalho: {
 			marquiseAntes: {
-				src: "/assets/images/marquiseAntes.jpg",
+				src: "assets/images/marquiseAntes.jpg",
 				alt: "Marquise antes do serviço",
 			},
 			marquiseDepois: {
-				src: "/assets/images/marquiseDepois.jpg",
+				src: "assets/images/marquiseDepois.jpg",
 				alt: "Marquise após o serviço",
 			},
 			lajeAntes: {
-				src: "/assets/images/lajeAntes.jpg",
+				src: "assets/images/lajeAntes.jpg",
 				alt: "Laje antes do serviço",
 			},
 			lajeDepois: {
-				src: "/assets/images/lajeDepois.jpg",
+				src: "assets/images/lajeDepois.jpg",
 				alt: "Laje após o serviço",
 			},
 			caixaDaguaAntes: {
-				src: "/assets/images/caixaDaguaAntes.jpg",
+				src: "assets/images/caixaDaguaAntes.jpg",
 				alt: "Caixa d'Água antes do serviço",
 			},
 			caixaDaguaDepois: {
-				src: "/assets/images/caixaDaguaDepois.jpg",
+				src: "assets/images/caixaDaguaDepois.jpg",
 				alt: "Caixa d'Água após o serviço",
 			},
 			estanqueidadeUm: {
-				src: "/assets/images/estanqueidadeUm.jpg",
+				src: "assets/images/estanqueidadeUm.jpg",
 				alt: "Teste de estanqueidade",
 			},
 			estanqueidadeDois: {
-				src: "/assets/images/estanqueidadeDois.jpg",
+				src: "assets/images/estanqueidadeDois.jpg",
 				alt: "Teste de estanqueidade",
 			},
 		},
 	},
 	quemSomos: {
 		quemSomos: {
-			src: "/assets/images/quemSomos.jpg",
+			src: "assets/images/quemSomos.jpg",
 			alt: "Foto da fachada do empreendimento",
 		},
 		nossosLideres: {
 			paulo: {
-				src: "/assets/images/liderPaulo.jpeg",
+				src: "assets/images/liderPaulo.jpeg",
 				alt: "Foto de Paulo Bortoncello",
 			},
 			beatriz: {
-				src: "/assets/images/liderBeatriz.jpeg",
+				src: "assets/images/liderBeatriz.jpeg",
 				alt: "Foto de Beatriz Petri",
 			},
 			aline: {
-				src: "/assets/images/liderAline.jpeg",
+				src: "assets/images/liderAline.jpeg",
 				alt: "Foto de Aline Bortoncello",
 			},
 		},
 	},
 	solucoes: {
-		intro: {src: "/assets/images/solucoes.jpg", alt: "Imagem representativa"},
-		tampa: {src: "/assets/images/tampa.jpg", alt: "Imagem de tampa produzida pela Bortoncello"},
+		intro: {src: "assets/images/solucoes.jpg", alt: "Imagem representativa"},
+		tampa: {src: "assets/images/tampa.jpg", alt: "Imagem de tampa produzida pela Bortoncello"},
 	},
 	clientes: [
-		{src: "/assets/customers/petrobras.png", alt: "Logo Petrobrás"},
-		{src: "/assets/customers/ufrgs.png", alt: "Logo UFRGS"},
-		{src: "/assets/customers/corsan.png", alt: "Logo Corsan"},
-		{src: "/assets/customers/pucRS.webp", alt: "Logo PUC RS"},
-		{src: "/assets/customers/brasilit.png", alt: "Logo Brasilit"},
-		{src: "/assets/customers/zaffari.webp", alt: "Logo Zaffari"},
-		{src: "/assets/customers/grupoMarista.png", alt: "Logo Marista"},
-		{src: "/assets/customers/laSalle.png", alt: "Logo La Salle"},
-		{src: "/assets/customers/hmipv.png", alt: "Logo HMIPV"},
-		{src: "/assets/customers/fundacaoCEEE.png", alt: "Logo CEEE"},
+		{src: "assets/customers/petrobras.png", alt: "Logo Petrobrás"},
+		{src: "assets/customers/ufrgs.png", alt: "Logo UFRGS"},
+		{src: "assets/customers/corsan.png", alt: "Logo Corsan"},
+		{src: "assets/customers/pucRS.webp", alt: "Logo PUC RS"},
+		{src: "assets/customers/brasilit.png", alt: "Logo Brasilit"},
+		{src: "assets/customers/zaffari.webp", alt: "Logo Zaffari"},
+		{src: "assets/customers/grupoMarista.png", alt: "Logo Marista"},
+		{src: "assets/customers/laSalle.png", alt: "Logo La Salle"},
+		{src: "assets/customers/hmipv.png", alt: "Logo HMIPV"},
+		{src: "assets/customers/fundacaoCEEE.png", alt: "Logo CEEE"},
 	],
 	imagens: {
 		lajes: [
@@ -150,31 +150,31 @@ const imageLibrary = {
 
 const iconLibrary = {
 	internal: {
-		areasMolhadas: {src: "/assets/icons/areasMolhadas.png", alt: "Ícone representativo"},
-		caixasDagua: {src: "/assets/icons/caixasDagua.png", alt: "Ícone representativo"},
-		check: {src: "/assets/icons/check.png", alt: "Ícone representativo"},
-		elevador: {src: "/assets/icons/elevador.png", alt: "Ícone representativo"},
-		emborrachadoFlexivel: {src: "/assets/icons/emborrachadoFlexivel.png", alt: "Ícone representativo"},
-		esquadro: {src: "/assets/icons/esquadro.png", alt: "Ícone representativo"},
-		lajes: {src: "/assets/icons/lajes.png", alt: "Ícone representativo"},
-		medalha: {src: "/assets/icons/medalha.png", alt: "Ícone representativo"},
-		piscinas: {src: "/assets/icons/piscinas.png", alt: "Ícone representativo"},
-		sistemaCristalizante: {src: "/assets/icons/sistemaCristalizante.png", alt: "Ícone representativo"},
-		areasMolhadasBranco: {src: "/assets/icons/areasMolhadasBranco.png", alt: "Ícone representativo"},
-		caixasDaguaBranco: {src: "/assets/icons/caixasDaguaBranco.png", alt: "Ícone representativo"},
-		checkBranco: {src: "/assets/icons/checkBranco.png", alt: "Ícone representativo"},
-		elevadorBranco: {src: "/assets/icons/elevadorBranco.png", alt: "Ícone representativo"},
-		emborrachadoFlexivelBranco: {src: "/assets/icons/emborrachadoFlexivelBranco.png", alt: "Ícone representativo"},
-		esquadroBranco: {src: "/assets/icons/esquadroBranco.png", alt: "Ícone representativo"},
-		lajesBranco: {src: "/assets/icons/lajesBranco.png", alt: "Ícone representativo"},
-		medalhaBranco: {src: "/assets/icons/medalhaBranco.png", alt: "Ícone representativo"},
-		piscinasBranco: {src: "/assets/icons/piscinasBranco.png", alt: "Ícone representativo"},
-		sistemaCristalizanteBranco: {src: "/assets/icons/sistemaCristalizanteBranco.png", alt: "Ícone representativo"},
+		areasMolhadas: {src: "assets/icons/areasMolhadas.png", alt: "Ícone representativo"},
+		caixasDagua: {src: "assets/icons/caixasDagua.png", alt: "Ícone representativo"},
+		check: {src: "assets/icons/check.png", alt: "Ícone representativo"},
+		elevador: {src: "assets/icons/elevador.png", alt: "Ícone representativo"},
+		emborrachadoFlexivel: {src: "assets/icons/emborrachadoFlexivel.png", alt: "Ícone representativo"},
+		esquadro: {src: "assets/icons/esquadro.png", alt: "Ícone representativo"},
+		lajes: {src: "assets/icons/lajes.png", alt: "Ícone representativo"},
+		medalha: {src: "assets/icons/medalha.png", alt: "Ícone representativo"},
+		piscinas: {src: "assets/icons/piscinas.png", alt: "Ícone representativo"},
+		sistemaCristalizante: {src: "assets/icons/sistemaCristalizante.png", alt: "Ícone representativo"},
+		areasMolhadasBranco: {src: "assets/icons/areasMolhadasBranco.png", alt: "Ícone representativo"},
+		caixasDaguaBranco: {src: "assets/icons/caixasDaguaBranco.png", alt: "Ícone representativo"},
+		checkBranco: {src: "assets/icons/checkBranco.png", alt: "Ícone representativo"},
+		elevadorBranco: {src: "assets/icons/elevadorBranco.png", alt: "Ícone representativo"},
+		emborrachadoFlexivelBranco: {src: "assets/icons/emborrachadoFlexivelBranco.png", alt: "Ícone representativo"},
+		esquadroBranco: {src: "assets/icons/esquadroBranco.png", alt: "Ícone representativo"},
+		lajesBranco: {src: "assets/icons/lajesBranco.png", alt: "Ícone representativo"},
+		medalhaBranco: {src: "assets/icons/medalhaBranco.png", alt: "Ícone representativo"},
+		piscinasBranco: {src: "assets/icons/piscinasBranco.png", alt: "Ícone representativo"},
+		sistemaCristalizanteBranco: {src: "assets/icons/sistemaCristalizanteBranco.png", alt: "Ícone representativo"},
 	},
 	external: {
-		linkedin: {src: "/assets/icons/linkedin.webp", alt: "Ícone LinkedIn"},
-		instagram: {src: "/assets/icons/instagram.webp", alt: "Ícone Instagram"},
-		whatsapp: {src: "/assets/icons/whatsapp.png", alt: "Ícone WhatsApp"},
+		linkedin: {src: "assets/icons/linkedin.webp", alt: "Ícone LinkedIn"},
+		instagram: {src: "assets/icons/instagram.webp", alt: "Ícone Instagram"},
+		whatsapp: {src: "assets/icons/whatsapp.png", alt: "Ícone WhatsApp"},
 	},
 };
 
@@ -598,3 +598,4 @@ const textLibrary = {
 		},
 	},
 };
+
