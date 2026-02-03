@@ -187,7 +187,7 @@ const linkLibrary = {
 		solucoesLocaisDeAplicacao: "solucoes.html#locaisDeAplicacao",
 		solucoesTampas: "solucoes.html#tampas",
 		solucoesLaudosTecnicos: "solucoes.html#laudosTecnicos",
-		diferenciais: "/#diferenciais",
+		diferenciais: "index.html#diferenciais",
 		clientes: "clientes.html",
 		imagens: "imagens.html",
 		contato: "contato.html",
@@ -598,6 +598,7 @@ const textLibrary = {
 		},
 	},
 };
+
 
 
 
