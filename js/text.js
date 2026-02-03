@@ -180,7 +180,7 @@ const iconLibrary = {
 
 const linkLibrary = {
 	internal: {
-		home: "/",
+		home: "index.html",
 		quemSomos: "quem-somos.html",
 		solucoes: "solucoes.html",
 		solucoesSistemas: "solucoes.html#sistemas",
@@ -598,4 +598,5 @@ const textLibrary = {
 		},
 	},
 };
+
 
