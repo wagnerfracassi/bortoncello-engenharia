@@ -41,15 +41,15 @@ const imageLibrary = {
 				alt: "Marquise após o serviço",
 			},
 			lajeAntes: {
-				src: "assets/images/lajeAntes.jpg",
+				src: "assets/images/lajeAntes.JPG",
 				alt: "Laje antes do serviço",
 			},
 			lajeDepois: {
-				src: "assets/images/lajeDepois.jpg",
+				src: "assets/images/lajeDepois.JPG",
 				alt: "Laje após o serviço",
 			},
 			caixaDaguaAntes: {
-				src: "assets/images/caixaDaguaAntes.jpg",
+				src: "assets/images/caixaDaguaAntes.JPG",
 				alt: "Caixa d'Água antes do serviço",
 			},
 			caixaDaguaDepois: {
@@ -68,7 +68,7 @@ const imageLibrary = {
 	},
 	quemSomos: {
 		quemSomos: {
-			src: "assets/images/quemSomos.jpg",
+			src: "assets/images/quemSomos.JPG",
 			alt: "Foto da fachada do empreendimento",
 		},
 		nossosLideres: {
@@ -88,7 +88,7 @@ const imageLibrary = {
 	},
 	solucoes: {
 		intro: {src: "assets/images/solucoes.jpg", alt: "Imagem representativa"},
-		tampa: {src: "assets/images/tampa.jpg", alt: "Imagem de tampa produzida pela Bortoncello"},
+		tampa: {src: "assets/images/tampa.JPG", alt: "Imagem de tampa produzida pela Bortoncello"},
 	},
 	clientes: [
 		{src: "assets/customers/petrobras.png", alt: "Logo Petrobrás"},
@@ -598,5 +598,6 @@ const textLibrary = {
 		},
 	},
 };
+
 
 
