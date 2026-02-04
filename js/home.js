@@ -25,7 +25,7 @@ const meta = {
 	},
 };
 
-const intro = {
+/* const oldintro = {
 	createAll() {
 		this.createSection();
 		this.createIntroCards();
@@ -170,6 +170,171 @@ const intro = {
 				});
 			});
 		}
+	},
+}; */
+
+const intro = {
+	createAll() {
+		this.createSection();
+		this.createIntroCards();
+		this.createSwiper();
+	},
+	createSection() {
+		const divId = "intro";
+		const div = build.sectionDiv(divId);
+		div.classList.add(divId);
+	},
+	createIntroCards() {
+		const parent = document.getElementById("introContainer");
+		const container = document.createElement("div");
+		container.id = "bannersContainer";
+		container.classList.add("bannersContainer");
+
+		parent.append(container);
+
+		const banners = imageLibrary.home.intro;
+		for (const banner of Object.keys(banners)) {
+			this.createBannerContainer(banner, container);
+			this.createImg(banner);
+			this.createContent(banner);
+		}
+	},
+	createBannerContainer(banner, wrapper) {
+		const slide = document.createElement("div");
+		slide.id = `${banner}BannerContainer`;
+		slide.classList.add("swiperSlide");
+
+		wrapper.append(slide);
+	},
+	createImg(banner) {
+		const container = document.getElementById(`${banner}BannerContainer`);
+		const imgContainer = document.createElement("div");
+		imgContainer.classList.add("introImgContainer", "imgFilter");
+
+		const img = build.img(imageLibrary.home.intro[banner]);
+		imgContainer.append(img);
+		container.append(imgContainer);
+	},
+	createContent(banner) {
+		const {
+			header,
+			subheader,
+			button: {text, icon, link},
+		} = textLibrary.home.intro[banner];
+		const parent = document.getElementById(`${banner}BannerContainer`);
+		const container = document.createElement("div");
+		container.classList.add("introTextContainer");
+		const h1 = build.h1(header);
+		const h2 = build.h2(subheader);
+
+		const button = build.a(text, icon, link);
+		button.classList.add("buttonStyleWhite");
+
+		container.append(h1, h2, button);
+		parent.append(container);
+	},
+	createSwiper() {
+		const parent = document.getElementById("introContainer");
+		const container = document.createElement("div");
+		container.classList.add("swiperContainer");
+
+		const bannersContainer = document.getElementById("bannersContainer");
+		this.initCarousel(bannersContainer);
+
+		const leftArrow = this.createArrowButton("left", () => this.onArrowClick("left"));
+		const rightArrow = this.createArrowButton("right", () => this.onArrowClick("right"));
+		container.append(leftArrow, rightArrow);
+		parent.append(container);
+	},
+	createArrowButton(side, onClick) {
+		const button = document.createElement("button");
+		button.classList.add("arrow");
+		if (side === "left") button.classList.add("arrowLeft");
+		button.dataset.carouselControl = "true";
+		button.setAttribute("aria-label", `Slide ${side === "left" ? "anterior" : "próximo"}`);
+		button.addEventListener("click", onClick);
+		return button;
+	},
+	initCarousel(bannersContainer) {
+		const banners = [...bannersContainer.children];
+
+		const firstClone = banners[0].cloneNode(true);
+		const lastClone = banners[banners.length - 1].cloneNode(true);
+
+		bannersContainer.prepend(lastClone);
+		bannersContainer.append(firstClone);
+
+		this.currentIndex = 1;
+		bannersContainer.dataset.index = this.currentIndex;
+
+		this.updateTransform(bannersContainer);
+		this.initAccessibility(bannersContainer);
+	},
+	onArrowClick(side) {
+		const bannersContainer = document.getElementById("bannersContainer");
+		if (bannersContainer.dataset.animating === "1") return;
+		bannersContainer.dataset.animating = "1";
+
+		const direction = side === "right" ? 1 : -1;
+		this.currentIndex += direction;
+		bannersContainer.dataset.index = this.currentIndex;
+
+		this.updateTransform(bannersContainer);
+
+		bannersContainer.style.transition = "transform 0.5s ease";
+
+		bannersContainer.addEventListener(
+			"transitionend",
+			() => {
+				bannersContainer.style.transition = "none";
+
+				const totalSlides = bannersContainer.children.length;
+				const realSlides = totalSlides - 2;
+
+				if (this.currentIndex >= totalSlides - 1) {
+					this.currentIndex = 1;
+				} else if (this.currentIndex <= 0) {
+					this.currentIndex = realSlides;
+				}
+
+				bannersContainer.dataset.index = this.currentIndex;
+				this.updateTransform(bannersContainer);
+				bannersContainer.dataset.animating = "0";
+				this.updateSlideAccessibility();
+			},
+			{once: true},
+		);
+	},
+	updateTransform(bannersContainer) {
+		const translateX = -this.currentIndex * 100;
+		bannersContainer.style.transform = `translateX(${translateX}vw)`;
+		this.updateSlideAccessibility();
+	},
+	initAccessibility(bannersContainer) {
+		const allFocusables = bannersContainer.querySelectorAll("a, button, input, textarea, select");
+		allFocusables.forEach((element) => {
+			if (element.dataset.carouselControl !== "true") {
+				element.setAttribute("tabindex", "-1");
+			}
+		});
+
+		this.updateSlideAccessibility();
+	},
+	updateSlideAccessibility() {
+		const bannersContainer = document.getElementById("bannersContainer");
+		const slides = [...bannersContainer.children];
+
+		slides.forEach((slide, index) => {
+			const isActive = index === this.currentIndex;
+			slide.setAttribute("aria-hidden", !isActive);
+			const focusables = slide.querySelectorAll("a, button, input, textarea, select");
+
+			focusables.forEach((element) => {
+				if (element.dataset.carouselControl === "true") return;
+				if (!isActive) return element.setAttribute("tabindex", "-1");
+				element.removeAttribute("tabindex");
+			});
+		});
 	},
 };
 
