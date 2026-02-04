@@ -283,7 +283,7 @@ const textLibrary = {
 			},
 			protecao: {
 				header: "Proteção sob medida",
-				subheader: "para lajes, caixas d'água, poços de elevador, áreas molhadas e muiton mais",
+				subheader: "para lajes, caixas d'água, poços de elevador, áreas molhadas e muito mais",
 				button: {text: "Saiba mais", icon: "", link: linkLibrary.internal.solucoesLocaisDeAplicacao},
 			},
 			eficiencia: {
@@ -322,7 +322,7 @@ const textLibrary = {
 					link: linkLibrary.internal.solucoesLocaisDeAplicacao,
 				},
 				{
-					text: "FOSSOS DE ELEVADOR",
+					text: "POÇOS DE ELEVADOR",
 					icon: iconLibrary.internal.elevador,
 					link: linkLibrary.internal.solucoesLocaisDeAplicacao,
 				},
@@ -348,7 +348,7 @@ const textLibrary = {
 				},
 				{
 					header: "EQUIPE TÉCNICA\nESPECIALIZADA",
-					text: "Colaboradores treinados conforme NR-6, NR-33 e NR-35.",
+					text: "Colaboradores treinados conforme NR-6, NR-18, NR-33 e NR-35.",
 					icon: iconLibrary.internal.checkBranco,
 				},
 				{
@@ -373,7 +373,7 @@ const textLibrary = {
 				},
 				{
 					header: "ALTA RESISTÊNCIA A\nMOVIMENTAÇÕES\nESTRUTURAIS",
-					text: "Segurança prolongada, garantindo tranquilidade a longo prazo.",
+					text: "Impermeabilizações flexíveis que acompanham dilatações e contrações da construção.",
 					icon: iconLibrary.internal.checkBranco,
 				},
 			],
@@ -473,7 +473,7 @@ const textLibrary = {
 	solucoes: {
 		intro: {
 			header: "Soluções",
-			subheader: "Confira as soluções que a\nBortoncello Engenharia proporciona",
+			subheader: "Confira as soluções que a Bortoncello\nEngenharia de Impermeabilização proporciona",
 		},
 		sistemasImpermeabilizantes: {
 			header: "Sistemas Impermeabilizantes",
@@ -501,13 +501,13 @@ const textLibrary = {
 				{
 					header: "Áreas Horizontais Externas",
 					subheader: "Lajes, coberturas, terraços, marquises e floreiras",
-					text: "Ambientes destinados ao armazenamento de líquidos requerem impermeabilização interna, capaz de resistir à umidade constante e garantir estanqueidade total. Os sistemas aplicados formam uma barreira contínua, segura e higiênica, protegendo tanto o reservatório quanto a estrutura do edifício.",
+					text: "Essas superfícies ficam expostas às variações do clima e acumulam água da chuva, sofrendo com infiltrações por pressão positiva. São áreas que exigem sistemas altamente flexíveis, que acompanham as movimentações da estrutura e garantem proteção contínua, sem necessidade de remoção do revestimento existente.",
 					icon: iconLibrary.internal.lajes,
 				},
 				{
 					header: "Áreas de armazenamento\nde água",
 					subheader: "Caixas d'água e tanques de retenção",
-					text: "Essas superfícies ficam expostas às variações do clima e acumulam água da chuva, sofrendo com infiltrações por pressão positiva. São áreas que exigem sistemas altamente flexíveis, que acompanham as movimentações da estrutura e garantem proteção contínua, sem necessidade de remoção do revestimento existente.",
+					text: "Ambientes destinados ao armazenamento de líquidos requerem impermeabilização interna, capaz de resistir à umidade constante e garantir estanqueidade total. Os sistemas aplicados formam uma barreira contínua, segura e higiênica, protegendo tanto o reservatório quanto a estrutura do edifício.",
 					icon: iconLibrary.internal.caixasDagua,
 				},
 				{
