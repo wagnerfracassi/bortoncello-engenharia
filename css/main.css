@@ -32,8 +32,6 @@
 	--border-radius-cartao: 1rem;
 	--border-radius-button: 2rem;
 
-	--border-white-dashed: 1px dashed var(--bright-white);
-	--border-blue-dashed: 1px dashed var(--navy-peony);
 	--border-blue-solid: 2px solid var(--navy-peony);
 	--border-bottom-styled: 3px solid var(--tropical-breeze);
 
@@ -82,8 +80,6 @@ h3 {
 }
 h4 {
 	font-size: 1.1rem;
-	border: var(--border-white-dashed);
-	border-radius: var(--border-radius-button);
 	width: fit-content;
 	padding: 0.5rem;
 }
@@ -575,17 +571,11 @@ label {
 .entendaComoFuncionaContainer img {
 	border-radius: var(--border-radius-cartao);
 }
-.entendaComoFuncionaContainer h4 {
-	border: var(--border-blue-dashed);
-}
 
 /* Diferenciais */
 .diferenciais {
 	display: grid;
 	background-color: var(--bright-white-alt);
-}
-.diferenciais h4 {
-	border: var(--border-blue-dashed);
 }
 .diferenciais p,
 .diferenciais h3 {
@@ -666,9 +656,6 @@ label {
 .nossoTrabalho {
 	background-color: var(--bright-white-alt);
 	padding-block: 3rem;
-}
-.nossoTrabalho h4 {
-	border: var(--border-blue-dashed);
 }
 .nossoTrabalho h3 {
 	letter-spacing: unset;
