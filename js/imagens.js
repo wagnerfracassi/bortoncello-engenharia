@@ -37,11 +37,17 @@ const header = {
 
 		const buttonContainer = document.createElement("div");
 		buttonContainer.classList.add("imagensButtonContainer");
-		for (const [index, {text, link}] of buttons.entries()) {
+		for (const [index, {text, link, filtro}] of buttons.entries()) {
 			const button = build.button(text, null, link);
 			const isFirst = index === 0;
 			const className = isFirst ? "buttonStyleBlue" : "buttonStyleWhite";
-			button.classList.add(className, "blueBorder");
+			button.classList.add(className, "blueBorder", "filterButton");
+
+			// Adiciona o atributo data-filtro do textLibrary
+			if (filtro) {
+				button.dataset.filtro = filtro;
+			}
+
 			buttonContainer.append(button);
 		}
 
@@ -50,9 +56,17 @@ const header = {
 };
 
 const imagens = {
+	CATEGORIAS: {
+		TODAS: "todas",
+		LAJES: "lajes",
+		CAIXAS_DAGUA: "caixasDagua",
+		MARQUISES: "marquises",
+	},
 	createAll() {
 		this.createSection();
 		this.createCards();
+		this.inicializarFiltros();
+		this.verificarFiltroInicial();
 	},
 	createSection() {
 		const divId = "galeriaDeImagens";
@@ -61,13 +75,16 @@ const imagens = {
 	},
 	createCards() {
 		const tiposDeImagens = imageLibrary.imagens;
-		for (const imagens of Object.keys(tiposDeImagens)) this.createCard(tiposDeImagens[imagens]);
+		for (const imagens of Object.keys(tiposDeImagens)) {
+			this.createCard(imagens, tiposDeImagens[imagens]);
+		}
 	},
-	createCard(imagens) {
+	createCard(categoria, imagens) {
 		const container = document.getElementById("galeriaDeImagensContainer");
 		for (const {antes, depois} of imagens) {
 			const card = document.createElement("div");
-			card.classList.add("imageCard", "boxShadow");
+			card.classList.add("imageCard", "boxShadow", "visible");
+			card.dataset.categoria = categoria;
 
 			const imageContainer = document.createElement("div");
 			imageContainer.classList.add("imageCardContainer");
@@ -87,10 +104,10 @@ const imagens = {
 			card.append(imageContainer, cardLabel);
 			container.append(card);
 
-			this.initializeDrag(imageContainer, imgSlider, imgDepois);
+			this.inicializarDrag(imageContainer, imgSlider, imgDepois);
 		}
 	},
-	initializeDrag(container, slider, afterImage) {
+	inicializarDrag(container, slider, afterImage) {
 		let isDragging = false;
 		let containerRect;
 
@@ -173,5 +190,79 @@ const imagens = {
 				}
 			}
 		});
+	},
+	inicializarFiltros() {
+		const buttons = document.querySelectorAll(".filterButton");
+		for (const button of buttons) {
+			button.addEventListener("click", (event) => {
+				event.preventDefault();
+				const {filtro: categoria} = event.currentTarget.dataset;
+				if (categoria) this.filtrarImagens(categoria);
+			});
+		}
+
+		const primeiroBotao = document.querySelector(".filterButton");
+		if (!primeiroBotao) return;
+		if (!primeiroBotao.dataset.filtro) return;
+
+		this.filtrarImagens(primeiroBotao.dataset.filtro);
+	},
+	filtrarImagens(categoria) {
+		const todas = this.CATEGORIAS.TODAS;
+		toggleButtonStyle();
+		toggleCardVisibility();
+
+		function toggleButtonStyle() {
+			const buttons = document.querySelectorAll(".filterButton");
+			const whiteStyle = "buttonStyleWhite";
+			const blueStyle = "buttonStyleBlue";
+			buttons.forEach((button) => {
+				button.classList.remove(blueStyle);
+				button.classList.add(whiteStyle);
+			});
+			const activeButton = document.querySelector(`[data-filtro="${categoria}"]`);
+			if (activeButton) {
+				activeButton.classList.remove(whiteStyle);
+				activeButton.classList.add(blueStyle);
+			}
+		}
+		function toggleCardVisibility() {
+			const cards = document.querySelectorAll(".imageCard");
+			cards.forEach((card) => {
+				const {categoria: cardCategoria} = card.dataset;
+				const sameCategory = categoria === todas || cardCategoria === categoria;
+				const hiddenClass = "hidden";
+				const visibleClass = "visible";
+
+				if (sameCategory) {
+					card.classList.remove(hiddenClass);
+					card.classList.add(visibleClass);
+					return;
+				}
+
+				card.classList.remove(visibleClass);
+				card.classList.add(hiddenClass);
+			});
+		}
+	},
+	extrairFiltroDaURL() {
+		const hash = window.location.hash.substring(1);
+		const mapeamento = {
+			lajes: this.CATEGORIAS.LAJES,
+			marquises: this.CATEGORIAS.MARQUISES,
+			caixasdagua: this.CATEGORIAS.CAIXAS_DAGUA,
+			todas: this.CATEGORIAS.TODAS,
+		};
+		const filtroNormalizado = hash.toLowerCase().replace(/'/g, "").replace(/\s+/g, "");
+
+		if (mapeamento[filtroNormalizado]) return mapeamento[filtroNormalizado];
+		return null;
+	},
+
+	verificarFiltroInicial() {
+		const filtro = this.extrairFiltroDaURL();
+		if (!filtro) return;
+
+		this.filtrarImagens(filtro);
 	},
 };

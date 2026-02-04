@@ -33,116 +33,116 @@ const imageLibrary = {
 		},
 		nossoTrabalho: {
 			marquiseAntes: {
-				src: "assets/images/marquiseAntes.jpg",
+				src: "assets/images/marquiseAntes.webp",
 				alt: "Marquise antes do serviço",
 			},
 			marquiseDepois: {
-				src: "assets/images/marquiseDepois.jpg",
+				src: "assets/images/marquiseDepois.webp",
 				alt: "Marquise após o serviço",
 			},
 			lajeAntes: {
-				src: "assets/images/lajeAntes.JPG",
+				src: "assets/images/lajeAntes.webp",
 				alt: "Laje antes do serviço",
 			},
 			lajeDepois: {
-				src: "assets/images/lajeDepois.JPG",
+				src: "assets/images/lajeDepois.webp",
 				alt: "Laje após o serviço",
 			},
 			caixaDaguaAntes: {
-				src: "assets/images/caixaDaguaAntes.JPG",
+				src: "assets/images/caixaDaguaAntes.webp",
 				alt: "Caixa d'Água antes do serviço",
 			},
 			caixaDaguaDepois: {
-				src: "assets/images/caixaDaguaDepois.jpg",
+				src: "assets/images/caixaDaguaDepois.webp",
 				alt: "Caixa d'Água após o serviço",
 			},
 			estanqueidadeUm: {
-				src: "assets/images/estanqueidadeUm.jpg",
+				src: "assets/images/estanqueidadeUm.webp",
 				alt: "Teste de estanqueidade",
 			},
 			estanqueidadeDois: {
-				src: "assets/images/estanqueidadeDois.jpg",
+				src: "assets/images/estanqueidadeDois.webp",
 				alt: "Teste de estanqueidade",
 			},
 		},
 	},
 	quemSomos: {
 		quemSomos: {
-			src: "assets/images/quemSomos.JPG",
+			src: "assets/images/quemSomos.webp",
 			alt: "Foto da fachada do empreendimento",
 		},
 		nossosLideres: {
 			paulo: {
-				src: "assets/images/liderPaulo.jpeg",
+				src: "assets/images/liderPaulo.webp",
 				alt: "Foto de Paulo Bortoncello",
 			},
 			beatriz: {
-				src: "assets/images/liderBeatriz.jpeg",
+				src: "assets/images/liderBeatriz.webp",
 				alt: "Foto de Beatriz Petri",
 			},
 			aline: {
-				src: "assets/images/liderAline.jpeg",
+				src: "assets/images/liderAline.webp",
 				alt: "Foto de Aline Bortoncello",
 			},
 		},
 	},
 	solucoes: {
-		intro: {src: "assets/images/solucoes.jpg", alt: "Imagem representativa"},
-		tampa: {src: "assets/images/tampa.JPG", alt: "Imagem de tampa produzida pela Bortoncello"},
+		intro: {src: "assets/images/solucoes.webp", alt: "Imagem representativa"},
+		tampa: {src: "assets/images/tampa.webp", alt: "Imagem de tampa produzida pela Bortoncello"},
 	},
 	clientes: [
-		{src: "assets/customers/petrobras.png", alt: "Logo Petrobrás"},
-		{src: "assets/customers/ufrgs.png", alt: "Logo UFRGS"},
-		{src: "assets/customers/corsan.png", alt: "Logo Corsan"},
+		{src: "assets/customers/petrobras.webp", alt: "Logo Petrobrás"},
+		{src: "assets/customers/ufrgs.webp", alt: "Logo UFRGS"},
+		{src: "assets/customers/corsan.webp", alt: "Logo Corsan"},
 		{src: "assets/customers/pucRS.webp", alt: "Logo PUC RS"},
-		{src: "assets/customers/brasilit.png", alt: "Logo Brasilit"},
+		{src: "assets/customers/brasilit.webp", alt: "Logo Brasilit"},
 		{src: "assets/customers/zaffari.webp", alt: "Logo Zaffari"},
-		{src: "assets/customers/grupoMarista.png", alt: "Logo Marista"},
-		{src: "assets/customers/laSalle.png", alt: "Logo La Salle"},
-		{src: "assets/customers/hmipv.png", alt: "Logo HMIPV"},
-		{src: "assets/customers/fundacaoCEEE.png", alt: "Logo CEEE"},
+		{src: "assets/customers/grupoMarista.webp", alt: "Logo Marista"},
+		{src: "assets/customers/laSalle.webp", alt: "Logo La Salle"},
+		{src: "assets/customers/hmipv.webp", alt: "Logo HMIPV"},
+		{src: "assets/customers/fundacaoCEEE.webp", alt: "Logo CEEE"},
 	],
 	imagens: {
 		lajes: [
 			{
-				antes: {src: "assets/images/galeriaImagens/lajes23A.JPG", alt: "Imagem de laje antes"},
-				depois: {src: "assets/images/galeriaImagens/lajes23D.JPG", alt: "Imagem de laje depois"},
+				antes: {src: "assets/images/galeriaImagens/lajes23A.webp", alt: "Imagem de laje antes"},
+				depois: {src: "assets/images/galeriaImagens/lajes23D.webp", alt: "Imagem de laje depois"},
 			},
 			{
-				antes: {src: "assets/images/galeriaImagens/lajes43A.JPG", alt: "Imagem de laje antes"},
-				depois: {src: "assets/images/galeriaImagens/lajes43D.JPG", alt: "Imagem de laje depois"},
+				antes: {src: "assets/images/galeriaImagens/lajes43A.webp", alt: "Imagem de laje antes"},
+				depois: {src: "assets/images/galeriaImagens/lajes43D.webp", alt: "Imagem de laje depois"},
 			},
 			{
-				antes: {src: "assets/images/galeriaImagens/lajes53A.jpeg", alt: "Imagem de laje antes"},
-				depois: {src: "assets/images/galeriaImagens/lajes53D.jpg", alt: "Imagem de laje depois"},
+				antes: {src: "assets/images/galeriaImagens/lajes53A.webp", alt: "Imagem de laje antes"},
+				depois: {src: "assets/images/galeriaImagens/lajes53D.webp", alt: "Imagem de laje depois"},
 			},
 		],
 		caixasDagua: [
 			{
-				antes: {src: "assets/images/galeriaImagens/caixaDagua1A.JPG", alt: "Imagem de caixa d'água antes"},
-				depois: {src: "assets/images/galeriaImagens/caixaDagua1D.jpg", alt: "Imagem de caixa d'água depois"},
+				antes: {src: "assets/images/galeriaImagens/caixaDagua1A.webp", alt: "Imagem de caixa d'água antes"},
+				depois: {src: "assets/images/galeriaImagens/caixaDagua1D.webp", alt: "Imagem de caixa d'água depois"},
 			},
 			{
-				antes: {src: "assets/images/galeriaImagens/caixaDagua4A.JPG", alt: "Imagem de caixa d'água antes"},
-				depois: {src: "assets/images/galeriaImagens/caixaDagua4D.jpg", alt: "Imagem de caixa d'água depois"},
+				antes: {src: "assets/images/galeriaImagens/caixaDagua4A.webp", alt: "Imagem de caixa d'água antes"},
+				depois: {src: "assets/images/galeriaImagens/caixaDagua4D.webp", alt: "Imagem de caixa d'água depois"},
 			},
 			{
-				antes: {src: "assets/images/galeriaImagens/caixaDagua33A.JPG", alt: "Imagem de caixa d'água antes"},
-				depois: {src: "assets/images/galeriaImagens/caixaDagua33D.JPG", alt: "Imagem de caixa d'água depois"},
+				antes: {src: "assets/images/galeriaImagens/caixaDagua33A.webp", alt: "Imagem de caixa d'água antes"},
+				depois: {src: "assets/images/galeriaImagens/caixaDagua33D.webp", alt: "Imagem de caixa d'água depois"},
 			},
 		],
 		marquises: [
 			{
-				antes: {src: "assets/images/galeriaImagens/marquise2A.jpg", alt: "Imagem de marquise antes"},
-				depois: {src: "assets/images/galeriaImagens/marquise2D.jpg", alt: "Imagem de marquise depois"},
+				antes: {src: "assets/images/galeriaImagens/marquise2A.webp", alt: "Imagem de marquise antes"},
+				depois: {src: "assets/images/galeriaImagens/marquise2D.webp", alt: "Imagem de marquise depois"},
 			},
 			{
-				antes: {src: "assets/images/galeriaImagens/marquise3A.jpg", alt: "Imagem de marquise antes"},
-				depois: {src: "assets/images/galeriaImagens/marquise3D.jpg", alt: "Imagem de marquise depois"},
+				antes: {src: "assets/images/galeriaImagens/marquise3A.webp", alt: "Imagem de marquise antes"},
+				depois: {src: "assets/images/galeriaImagens/marquise3D.webp", alt: "Imagem de marquise depois"},
 			},
 			{
-				antes: {src: "assets/images/galeriaImagens/marquise6A.JPG", alt: "Imagem de marquise antes"},
-				depois: {src: "assets/images/galeriaImagens/marquise6D.jpg", alt: "Imagem de marquise depois"},
+				antes: {src: "assets/images/galeriaImagens/marquise6A.webp", alt: "Imagem de marquise antes"},
+				depois: {src: "assets/images/galeriaImagens/marquise6D.webp", alt: "Imagem de marquise depois"},
 			},
 		],
 	},
@@ -170,6 +170,7 @@ const iconLibrary = {
 		medalhaBranco: {src: "assets/icons/medalhaBranco.png", alt: "Ícone representativo"},
 		piscinasBranco: {src: "assets/icons/piscinasBranco.png", alt: "Ícone representativo"},
 		sistemaCristalizanteBranco: {src: "assets/icons/sistemaCristalizanteBranco.png", alt: "Ícone representativo"},
+		error: {src: "assets/icons/erro.png", alt: "Ícone de erro"},
 	},
 	external: {
 		linkedin: {src: "assets/icons/linkedin.webp", alt: "Ícone LinkedIn"},
@@ -200,6 +201,8 @@ const linkLibrary = {
 			"https://api.whatsapp.com/send?phone=555130599200&text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+trabalho+da+bortoncello+e+solicitar+uma+visita+t%C3%A9cnica!",
 		googleMaps:
 			"https://www.google.com/maps/place/Bortoncello+Engenharia+de+Impermeabiliza%C3%A7%C3%A3o/@-29.9448175,-51.1789899,17z/data=!3m1!4b1!4m6!3m5!1s0x9519716359cb90f7:0x1e5a55c8c2b16842!8m2!3d-29.9448175!4d-51.1789899!16s%2Fg%2F11zjw7xghm",
+		googleMapsEmbed:
+			"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.203748614189!2d-51.178989900000005!3d-29.9448175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519716359cb90f7%3A0x1e5a55c8c2b16842!2sBortoncello%20Engenharia%20de%20Impermeabiliza%C3%A7%C3%A3o!5e0!3m2!1spt-BR!2sbr!4v1770123354892!5m2!1spt-BR!2sbr",
 	},
 };
 
@@ -210,6 +213,7 @@ const contactLibrary = {
 		rua: {text: "Rua João Nicolau, 166", link: linkLibrary.external.googleMaps},
 		cidade: {text: "Canoas / RS", link: linkLibrary.external.googleMaps},
 	},
+	endereçoAlt: {text: "Rua João Nicolau, 166\nCanoas / RS", link: linkLibrary.external.googleMaps},
 };
 
 const textLibrary = {
@@ -232,9 +236,9 @@ const textLibrary = {
 				text: "Imagens",
 				link: linkLibrary.internal.imagens,
 				dropdown: [
-					{text: "Lajes", link: linkLibrary.internal.imagens},
-					{text: "Marquises", link: linkLibrary.internal.imagens},
-					{text: "Caixas d'Água", link: linkLibrary.internal.imagens},
+					{text: "Lajes", link: `${linkLibrary.internal.imagens}#lajes`},
+					{text: "Caixas d'Água", link: `${linkLibrary.internal.imagens}#caixasDagua`},
+					{text: "Marquises", link: `${linkLibrary.internal.imagens}#marquises`},
 				],
 			},
 			{text: "Contato", link: linkLibrary.internal.contato},
@@ -383,24 +387,28 @@ const textLibrary = {
 			header: "Confira os antes e depois da Bortoncello",
 			cards: [
 				{
-					text: "Marquise",
-					before: imageLibrary.home.nossoTrabalho.marquiseAntes,
-					after: imageLibrary.home.nossoTrabalho.marquiseDepois,
-				},
-				{
-					text: "Laje",
+					text: "Lajes",
 					before: imageLibrary.home.nossoTrabalho.lajeAntes,
 					after: imageLibrary.home.nossoTrabalho.lajeDepois,
+					link: `${linkLibrary.internal.imagens}#lajes`,
 				},
 				{
-					text: "Caixa D'água",
+					text: "Caixas D'água",
 					before: imageLibrary.home.nossoTrabalho.caixaDaguaAntes,
 					after: imageLibrary.home.nossoTrabalho.caixaDaguaDepois,
+					link: `${linkLibrary.internal.imagens}#caixasDagua`,
+				},
+				{
+					text: "Marquises",
+					before: imageLibrary.home.nossoTrabalho.marquiseAntes,
+					after: imageLibrary.home.nossoTrabalho.marquiseDepois,
+					link: `${linkLibrary.internal.imagens}#marquises`,
 				},
 				{
 					text: "Teste de Estanqueidade",
 					before: imageLibrary.home.nossoTrabalho.estanqueidadeUm,
 					after: imageLibrary.home.nossoTrabalho.estanqueidadeDois,
+					link: linkLibrary.internal.imagens,
 				},
 			],
 		},
@@ -584,21 +592,105 @@ const textLibrary = {
 		header: "Galeria de Imagens",
 		subheader: "Veja a qualidade dos nossos serviços através dos antes e depois",
 		buttons: [
-			{text: "Todas", link: ""},
-			{text: "Lajes e Coberturas", link: ""},
-			{text: "Caixas d'Água", link: ""},
-			{text: "Marquises", link: ""},
+			{text: "Todas", link: "#", filtro: "todas"},
+			{text: "Lajes e Coberturas", link: "#", filtro: "lajes"},
+			{text: "Caixas d'Água", link: "#", filtro: "caixasDagua"},
+			{text: "Marquises", link: "#", filtro: "marquises"},
 		],
 	},
 	contato: {
 		faleConosco: {
 			smallHeader: "Fale com a gente",
 			header: "Solicite uma visita técnica gratuita",
-			text: [{}],
+			content: [
+				{
+					header: "Whatsapp",
+					subheader: contactLibrary.telefone,
+					text: "Atendimento rápido e direto",
+				},
+				{
+					header: "E-Mail",
+					subheader: contactLibrary.eMail,
+					text: "Resposta em até 24 horas",
+				},
+				{
+					header: "Endereço",
+					subheader: contactLibrary.endereçoAlt,
+					text: "Atendemos toda a região metropolitana",
+				},
+			],
+		},
+		formulário: {
+			campos: [
+				{
+					label: "Nome Completo *",
+					id: "name",
+					name: "name",
+					placeholder: "Digite seu nome",
+					type: "text",
+					required: true,
+					minLength: 3,
+					maxLength: 100,
+					pattern: "^[A-Za-zÀ-ÖØ-öø-ÿ\\s]+$",
+					title: "Por favor, insira apenas letras e espaços",
+				},
+				{
+					label: "E-mail *",
+					id: "email",
+					name: "email",
+					placeholder: "seuemail@email.com",
+					type: "email",
+					required: true,
+					maxLength: 255,
+					pattern: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+					title: "Por favor, insira um e-mail válido",
+				},
+				{
+					label: "Telefone",
+					id: "phone",
+					name: "phone",
+					placeholder: "(51) 99999-9999",
+					type: "tel",
+					required: false,
+					minLength: 10,
+					maxLength: 20,
+					pattern: "^(\\d+|\\(\\d{2}\\)\\s\\d{4,5}-\\d{4})$",
+					title: "Formato: (51) 99999-9999 ou 51999999999",
+				},
+				{
+					label: "Título",
+					id: "title",
+					name: "title",
+					placeholder: "Digite o assunto da mensagem",
+					required: false,
+					minLength: 10,
+					maxLength: 100,
+					title: "Mensagem deve ter entre 10 e 100 caracteres",
+				},
+				{
+					label: "Mensagem *",
+					id: "message",
+					name: "message",
+					placeholder: "Digite sua mensagem",
+					required: true,
+					minLength: 20,
+					maxLength: 5000,
+					title: "Mensagem deve ter entre 20 e 5000 caracteres",
+				},
+			],
+			sendButton: {text: "Enviar mensagem"},
+		},
+		emailPopup: {
+			success: {
+				header: "Sucesso",
+				text: "Sua mensagem foi enviada com sucesso.",
+				icon: iconLibrary.internal.check,
+			},
+			failure: {
+				header: "Erro",
+				text: "Houve um erro no envio de sua mensagem.\nTente novamente mais tarde ou envie-nos um e-mail.",
+				icon: iconLibrary.internal.error,
+			},
 		},
 	},
 };
-
-
-
-

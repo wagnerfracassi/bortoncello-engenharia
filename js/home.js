@@ -337,12 +337,13 @@ const nossoTrabalho = {
 		container.classList.add("cartoesTrabalho");
 		const {cards} = textLibrary.home.nossoTrabalho;
 
-		for (const {text, before, after} of cards) {
-			const card = document.createElement("div");
+		for (const {text, before, after, link} of cards) {
+			const card = document.createElement("a");
 			const h3 = build.h3(text);
 			const imgBefore = build.img(before);
 			const imgAfter = build.img(after);
 			card.classList.add("boxShadow");
+			card.href = link;
 			card.append(h3, imgBefore, imgAfter);
 			container.append(card);
 		}

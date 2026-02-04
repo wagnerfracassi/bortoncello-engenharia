@@ -122,6 +122,26 @@ const build = {
 		button.classList.add("unselectable");
 		return button;
 	},
+	closeButton() {
+		const closeButton = document.createElement("button");
+		closeButton.classList.add("unselectable");
+
+		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+		svg.setAttribute("width", "20");
+		svg.setAttribute("height", "20");
+		svg.setAttribute("viewBox", "0 0 20 20");
+		svg.setAttribute("fill", "none");
+
+		const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		path.setAttribute("d", "M15 5L5 15M5 5L15 15");
+		path.setAttribute("stroke", "currentColor");
+		path.setAttribute("stroke-width", "2");
+		path.setAttribute("stroke-linecap", "round");
+
+		svg.appendChild(path);
+		closeButton.appendChild(svg);
+		return closeButton;
+	},
 	textList(img, textArray) {
 		const container = document.createElement("ul");
 		container.classList.add("textListContainer");
@@ -134,6 +154,22 @@ const build = {
 			container.append(textContainer);
 		}
 		return container;
+	},
+	label(text, labelClass = undefined) {
+		const label = document.createElement("label");
+		label.textContent = text;
+		if (labelClass) label.classList.add(labelClass);
+		return label;
+	},
+	input(inputClass) {
+		const input = document.createElement("input");
+		if (inputClass) input.classList.add(inputClass);
+		return input;
+	},
+	textArea(textAreaClass) {
+		const textArea = document.createElement("textarea");
+		if (textAreaClass) textArea.classList.add(textAreaClass);
+		return textArea;
 	},
 };
 
@@ -416,7 +452,7 @@ const persistentWhatsapp = {
 		const a = build.a(null, iconLibrary.external.whatsapp, linkLibrary.external.whatsapp, true);
 		a.classList.add("persistentWhatsapp");
 		container.append(a);
-		if (!isMain) a.classList.add("visible");
+		if (!isMain) a.classList.add("nonOpaque");
 	},
 };
 
@@ -498,7 +534,7 @@ const eventListeners = {
 		}
 		function togglesWhatsappVisibility(isScrolled) {
 			const container = document.querySelector(".persistentWhatsapp");
-			isScrolled ? container.classList.add("visible") : container.classList.remove("visible");
+			isScrolled ? container.classList.add("nonOpaque") : container.classList.remove("nonOpaque");
 		}
 	},
 };
