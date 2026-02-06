@@ -1,7 +1,9 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => meta.onLoad());
-
+document.addEventListener("DOMContentLoaded", async () => {
+	await loadData();
+	meta.onLoad();
+});
 const meta = {
 	onLoad() {
 		this.createAll();
@@ -45,6 +47,7 @@ const clientes = {
 
 		for (const {src, alt} of clientes) {
 			const card = document.createElement("div");
+			card.classList.add("boxShadow");
 			const img = build.img({src, alt});
 
 			card.append(img);

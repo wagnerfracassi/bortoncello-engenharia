@@ -1,6 +1,9 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => meta.onLoad());
+document.addEventListener("DOMContentLoaded", async () => {
+	await loadData();
+	meta.onLoad();
+});
 
 const meta = {
 	onLoad() {
@@ -258,7 +261,6 @@ const imagens = {
 		if (mapeamento[filtroNormalizado]) return mapeamento[filtroNormalizado];
 		return null;
 	},
-
 	verificarFiltroInicial() {
 		const filtro = this.extrairFiltroDaURL();
 		if (!filtro) return;

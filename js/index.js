@@ -1,6 +1,9 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => meta.onLoad());
+document.addEventListener("DOMContentLoaded", async () => {
+	await loadData();
+	meta.onLoad();
+});
 
 const meta = {
 	onLoad() {
@@ -24,154 +27,6 @@ const meta = {
 		eventListeners.createInitial(isMain);
 	},
 };
-
-/* const oldintro = {
-	createAll() {
-		this.createSection();
-		this.createIntroCards();
-		this.createSwiper();
-	},
-	createSection() {
-		const divId = "intro";
-		const div = build.sectionDiv(divId);
-		div.classList.add(divId);
-	},
-	createIntroCards() {
-		const parent = document.getElementById("introContainer");
-		const container = document.createElement("div");
-		container.id = "bannersContainer";
-		container.classList.add("bannersContainer");
-		parent.append(container);
-		const banners = imageLibrary.home.intro;
-
-		for (const banner of Object.keys(banners)) {
-			this.createBannerContainer(banner);
-			this.createImg(banner);
-			this.createContent(banner);
-		}
-	},
-	createBannerContainer(banner) {
-		const parent = document.getElementById("bannersContainer");
-		const container = document.createElement("div");
-		container.id = `${banner}BannerContainer`;
-		parent.append(container);
-	},
-	createImg(banner) {
-		const container = document.getElementById(`${banner}BannerContainer`);
-		const imgContainer = document.createElement("div");
-		imgContainer.classList.add("introImgContainer", "imgFilter");
-
-		const img = build.img(imageLibrary.home.intro[banner]);
-		imgContainer.append(img);
-		container.append(imgContainer);
-	},
-	createContent(banner) {
-		const {
-			header,
-			subheader,
-			button: {text, icon, link},
-		} = textLibrary.home.intro[banner];
-		const parent = document.getElementById(`${banner}BannerContainer`);
-		const container = document.createElement("div");
-		container.classList.add("introTextContainer");
-		const h1 = build.h1(header);
-		const h2 = build.h2(subheader);
-
-		const button = build.a(text, icon, link);
-		button.classList.add("buttonStyleWhite");
-
-		container.append(h1, h2, button);
-		parent.append(container);
-	},
-	createSwiper() {
-		const parent = document.getElementById("introContainer");
-		const container = document.createElement("div");
-
-		container.classList.add("swiperContainer");
-
-		const bannersContainer = document.getElementById("bannersContainer");
-		initCarousel();
-
-		const leftArrow = createArrowButton("left");
-		const rightArrow = createArrowButton("right");
-		container.append(leftArrow, rightArrow);
-		parent.append(container);
-
-		function createArrowButton(side) {
-			const button = document.createElement("button");
-			button.classList.add("arrow");
-			if (side === "left") button.classList.add("arrowLeft");
-			button.addEventListener("click", () => onArrowClick(side));
-			return button;
-		}
-		function initCarousel() {
-			const banners = [...bannersContainer.children];
-
-			const firstClone = banners[0].cloneNode(true);
-			const lastClone = banners[banners.length - 1].cloneNode(true);
-
-			bannersContainer.prepend(lastClone);
-			bannersContainer.append(firstClone);
-
-			bannersContainer.dataset.index = -1; // começa no primeiro banner real
-			bannersContainer.style.transform = "translateX(-100vw)";
-			updateSlideAccessibility(-1);
-		}
-		function onArrowClick(side) {
-			if (bannersContainer.dataset.animating === "1") return;
-			bannersContainer.dataset.animating = "1";
-
-			const index = Number(bannersContainer.dataset.index);
-			const sign = side === "right" ? -1 : 1;
-
-			const total = bannersContainer.children.length;
-			const lastReal = (total - 2) * -1;
-
-			let newIndex = index + sign;
-
-			bannersContainer.style.transition = "transform 0.5s ease";
-			bannersContainer.dataset.index = newIndex;
-			bannersContainer.style.transform = `translateX(${newIndex * 100}vw)`;
-
-			bannersContainer.addEventListener("transitionend", () => finalizeMovement(newIndex, lastReal), {once: true});
-		}
-		function finalizeMovement(newIndex, lastReal) {
-			bannersContainer.style.transition = "none";
-
-			if (newIndex < lastReal) {
-				newIndex = -1;
-				bannersContainer.dataset.index = newIndex;
-				bannersContainer.style.transform = "translateX(-100vw)";
-			}
-
-			if (newIndex > -1) {
-				newIndex = lastReal;
-				bannersContainer.dataset.index = newIndex;
-				bannersContainer.style.transform = `translateX(${lastReal * 100}vw)`;
-			}
-
-			bannersContainer.dataset.animating = "0";
-			const finalIndex = Number(container.dataset.index);
-			updateSlideAccessibility(finalIndex);
-		}
-		function updateSlideAccessibility(activeIndex) {
-			const slides = [...bannersContainer.children];
-
-			slides.forEach((slide, i) => {
-				const isActive = i === Math.abs(activeIndex);
-
-				slide.setAttribute("aria-hidden", !isActive);
-
-				const focusables = slide.querySelectorAll("a, button, input, textarea, select, [tabindex]");
-
-				focusables.forEach((el) => {
-					if (el.dataset.carouselControl === "true") return;
-					isActive ? el.removeAttribute("tabindex") : el.setAttribute("tabindex", "-1");
-				});
-			});
-		}
-	},
-}; */
 
 const intro = {
 	createAll() {

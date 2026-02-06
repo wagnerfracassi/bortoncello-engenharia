@@ -1,6 +1,9 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => meta.onLoad());
+document.addEventListener("DOMContentLoaded", async () => {
+	await loadData();
+	meta.onLoad();
+});
 
 const meta = {
 	onLoad() {

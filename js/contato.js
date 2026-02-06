@@ -1,6 +1,10 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => meta.onLoad());
+document.addEventListener("DOMContentLoaded", async () => {
+	await loadData();
+	meta.onLoad();
+});
+
 emailjs.init({publicKey: "mDrWsV-2nlFChx4PF"});
 window.onload = function () {
 	document.getElementById("contactForm").addEventListener("submit", function (event) {

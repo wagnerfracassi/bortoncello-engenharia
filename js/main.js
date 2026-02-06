@@ -192,7 +192,7 @@ const siteHeader = {
 	},
 	createLogo() {
 		const headerDiv = document.getElementById("header");
-		const logoDiv = build.a(null, imageLibrary.whiteLogo, linkLibrary.internal.home);
+		const logoDiv = build.a(null, iconLibrary.internal.whiteLogo, linkLibrary.internal.home);
 		logoDiv.classList.add("headerLogo");
 		headerDiv.append(logoDiv);
 	},
