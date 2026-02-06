@@ -3,22 +3,34 @@
 document.addEventListener("DOMContentLoaded", async () => {
 	await loadData();
 	meta.onLoad();
+	emailJS.init();
+	emailJS.onLoad();
 });
 
-emailjs.init({publicKey: "mDrWsV-2nlFChx4PF"});
-window.onload = function () {
-	document.getElementById("contactForm").addEventListener("submit", function (event) {
-		event.preventDefault();
-		emailjs.sendForm("service_hoh4533", "template_2bmoozl", this).then(
-			() => {
-				faleConosco.emailSuccess();
-			},
-			(error) => {
-				faleConosco.emailFailure();
-				console.log(error);
-			},
-		);
-	});
+const emailJS = {
+	api: {
+		publicKey: "mDrWsV-2nlFChx4PF",
+		service: "service_hoh4533",
+		template: "template_2bmoozl",
+	},
+	init() {
+		emailjs.init({publicKey: this.api.publicKey});
+	},
+	onLoad() {
+		document.getElementById("contactForm").addEventListener("submit", function (event) {
+			event.preventDefault();
+			const {service, template} = emailJS.api;
+			emailjs.sendForm(service, template, this).then(
+				() => {
+					faleConosco.emailSuccess();
+				},
+				(error) => {
+					faleConosco.emailFailure();
+					console.log(error);
+				},
+			);
+		});
+	},
 };
 
 const meta = {
@@ -175,3 +187,4 @@ const googleMaps = {
 		parent.append(iframe);
 	},
 };
+
