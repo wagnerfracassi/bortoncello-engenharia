@@ -2,7 +2,19 @@
 
 const helper = {
 	isMobileScreen() {
-		return window.matchMedia("(max-width: 1024px)").matches;
+		return window.matchMedia("(max-width: 768px)").matches;
+	},
+	scrollToHash() {
+		const hash = window.location.hash;
+		if (!hash) return;
+
+		const target = document.querySelector(hash);
+		if (!target) return;
+
+		target.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		});
 	},
 };
 

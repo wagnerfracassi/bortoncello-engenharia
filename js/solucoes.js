@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 const meta = {
 	onLoad() {
 		this.createAll();
+		helper.scrollToHash();
 	},
 	createAll() {
 		persistentWhatsapp.build();
