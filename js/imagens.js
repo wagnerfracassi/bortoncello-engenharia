@@ -91,11 +91,12 @@ const imagens = {
 			card.dataset.categoria = categoria;
 
 			const imageContainer = document.createElement("div");
-			imageContainer.classList.add("imageCardContainer");
 			const imgAntes = build.img(antes);
 			const imgDepois = build.img(depois);
-			imgDepois.classList.add("after");
 			const imgSlider = document.createElement("div");
+			imageContainer.classList.add("imageCardContainer");
+			imgAntes.classList.add("unselectable");
+			imgDepois.classList.add("unselectable", "after");
 			imgSlider.classList.add("imageCardSlider");
 
 			const cardLabel = document.createElement("div");

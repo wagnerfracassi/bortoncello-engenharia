@@ -69,32 +69,31 @@ const build = {
 	h1(text, h1Class = null) {
 		const h1 = document.createElement("h1");
 		h1.textContent = text;
-		h1.classList.add("unselectable", h1Class);
+		h1.classList.add(h1Class);
 		return h1;
 	},
 	h2(text, h2Class = null) {
 		const h2 = document.createElement("h2");
 		h2.textContent = text;
-		h2.classList.add("unselectable", h2Class);
+		h2.classList.add(h2Class);
 		return h2;
 	},
 	h3(text, h3Class = null) {
 		const h3 = document.createElement("h3");
 		h3.textContent = text;
-		h3.classList.add("unselectable", h3Class);
+		h3.classList.add(h3Class);
 		return h3;
 	},
 	h4(text, h4Class = null) {
 		const h4 = document.createElement("h4");
 		h4.textContent = text;
-		h4.classList.add("unselectable", h4Class);
+		h4.classList.add(h4Class);
 		return h4;
 	},
 	img({src, alt}, imgClass = undefined) {
 		const img = document.createElement("img");
 		img.src = src;
 		img.alt = alt;
-		img.classList.add("unselectable");
 		img.draggable = false;
 		img.loading = "lazy";
 		if (imgClass) img.classList.add(imgClass);
@@ -110,7 +109,6 @@ const build = {
 
 		a.href = link;
 		a.target = newTab ? "_blank" : "_self";
-		a.classList.add("unselectable");
 		return a;
 	},
 	button(text, icon = null, iconFirst = false) {
@@ -120,12 +118,10 @@ const build = {
 			: [text && build.span(text), icon && build.img(icon)];
 
 		content.filter(Boolean).forEach((element) => button.append(element));
-		button.classList.add("unselectable");
 		return button;
 	},
 	closeButton() {
 		const closeButton = document.createElement("button");
-		closeButton.classList.add("unselectable");
 
 		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 		svg.setAttribute("width", "20");
@@ -413,7 +409,7 @@ const sidebarMenu = {
 		sidebarButton.append(img);
 		header.append(sidebarButton);
 
-		sidebarButton.classList.add("sidebarButton", "unselectable");
+		sidebarButton.classList.add("sidebarButton");
 		sidebarButton.addEventListener("click", () => {
 			sidebarMenu.toggle();
 		});
@@ -534,7 +530,7 @@ const eventListeners = {
 		});
 
 		function getScrolled() {
-			return window.scrollY > 0;
+			return window.scrollY > 100;
 		}
 		function changesBackground(isScrolled) {
 			isScrolled ? header.classList.add("headerBackground") : header.classList.remove("headerBackground");
