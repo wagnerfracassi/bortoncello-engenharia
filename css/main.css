@@ -1604,7 +1604,7 @@ label {
 	}
 }
 
-@media (max-width: 1600px) {
+@media (min-width: 769px) and (max-width: 1600px) {
 	html * {
 		overflow-x: hidden;
 		max-width: 100vw;
