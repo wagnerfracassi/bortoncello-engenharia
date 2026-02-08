@@ -2,7 +2,19 @@
 
 const helper = {
 	isMobileScreen() {
-		return window.matchMedia("(max-width: 1024px").matches;
+		return window.matchMedia("(max-width: 768px)").matches;
+	},
+	scrollToHash() {
+		const hash = window.location.hash;
+		if (!hash) return;
+
+		const target = document.querySelector(hash);
+		if (!target) return;
+
+		target.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		});
 	},
 };
 
@@ -69,32 +81,32 @@ const build = {
 	h1(text, h1Class = null) {
 		const h1 = document.createElement("h1");
 		h1.textContent = text;
-		h1.classList.add("unselectable", h1Class);
+		h1.classList.add(h1Class);
 		return h1;
 	},
 	h2(text, h2Class = null) {
 		const h2 = document.createElement("h2");
 		h2.textContent = text;
-		h2.classList.add("unselectable", h2Class);
+		h2.classList.add(h2Class);
 		return h2;
 	},
 	h3(text, h3Class = null) {
 		const h3 = document.createElement("h3");
 		h3.textContent = text;
-		h3.classList.add("unselectable", h3Class);
+		h3.classList.add(h3Class);
 		return h3;
 	},
 	h4(text, h4Class = null) {
 		const h4 = document.createElement("h4");
 		h4.textContent = text;
-		h4.classList.add("unselectable", h4Class);
+		h4.classList.add(h4Class);
 		return h4;
 	},
 	img({src, alt}, imgClass = undefined) {
 		const img = document.createElement("img");
 		img.src = src;
 		img.alt = alt;
-		img.classList.add("unselectable");
+		img.draggable = false;
 		img.loading = "lazy";
 		if (imgClass) img.classList.add(imgClass);
 		return img;
@@ -109,7 +121,6 @@ const build = {
 
 		a.href = link;
 		a.target = newTab ? "_blank" : "_self";
-		a.classList.add("unselectable");
 		return a;
 	},
 	button(text, icon = null, iconFirst = false) {
@@ -119,12 +130,10 @@ const build = {
 			: [text && build.span(text), icon && build.img(icon)];
 
 		content.filter(Boolean).forEach((element) => button.append(element));
-		button.classList.add("unselectable");
 		return button;
 	},
 	closeButton() {
 		const closeButton = document.createElement("button");
-		closeButton.classList.add("unselectable");
 
 		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 		svg.setAttribute("width", "20");
@@ -192,7 +201,7 @@ const siteHeader = {
 	},
 	createLogo() {
 		const headerDiv = document.getElementById("header");
-		const logoDiv = build.a(null, imageLibrary.whiteLogo, linkLibrary.internal.home);
+		const logoDiv = build.a(null, iconLibrary.internal.whiteLogo, linkLibrary.internal.home);
 		logoDiv.classList.add("headerLogo");
 		headerDiv.append(logoDiv);
 	},
@@ -213,6 +222,8 @@ const siteHeader = {
 		headerDiv.append(buttonsDiv);
 	},
 	createWhatsapp() {
+		if (helper.isMobileScreen()) return;
+
 		const buttonDiv = document.getElementById("header");
 		const {text, icon, link} = textLibrary.header.whatsapp;
 		const a = build.a(text, icon, link, true);
@@ -400,20 +411,24 @@ const sidebarMenu = {
 		this.swipeToOpen();
 	},
 	createSidebarButton() {
-		const width = window.getComputedStyle(document.getElementById("body")).width;
-		if (parseFloat(width) > 768) return;
+		if (!helper.isMobileScreen()) return;
 
 		const header = document.getElementById("header");
-		const sidebarButton = document.createElement("button");
-		const img = document.createElement("img");
+
+		const sidebarButton = build.button();
+		const icon = iconLibrary.internal.sidebarButton;
+		const img = build.img(icon);
 		sidebarButton.append(img);
 		header.append(sidebarButton);
 
-		sidebarButton.classList.add("sidebarButton", "unselectable");
-		sidebarButton.addEventListener("click", () => sidebarMenu.toggle());
-		img.src = iconLibrary.sidebarButton.src;
-		img.id = "openMenuImg";
-		sidebarButton.id = "openMenuButton";
+		sidebarButton.classList.add("sidebarButton");
+		sidebarButton.addEventListener("click", () => {
+			sidebarMenu.toggle();
+		});
+		sidebarButton.addEventListener("touchstart", (e) => {
+			e.preventDefault();
+			sidebarMenu.toggle();
+		});
 	},
 	createSidebarHeader() {
 		const sidebar = document.getElementById("sidebar");
@@ -479,7 +494,7 @@ const eventListeners = {
 			if (event.target === openButton) return;
 			if (event.target === openImg) return;
 
-			sidebar.classList.remove("activeSidebar");
+			sidebarMenu.close();
 		});
 	},
 	horizontalSwipe(nodeId, leftToRight, rightToLeft) {
@@ -527,7 +542,7 @@ const eventListeners = {
 		});
 
 		function getScrolled() {
-			return window.scrollY > 0;
+			return window.scrollY > 100;
 		}
 		function changesBackground(isScrolled) {
 			isScrolled ? header.classList.add("headerBackground") : header.classList.remove("headerBackground");

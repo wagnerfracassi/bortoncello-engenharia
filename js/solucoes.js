@@ -1,15 +1,20 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => meta.onLoad());
+document.addEventListener("DOMContentLoaded", async () => {
+	await loadData();
+	meta.onLoad();
+});
 
 const meta = {
 	onLoad() {
 		this.createAll();
+		helper.scrollToHash();
 	},
 	createAll() {
 		persistentWhatsapp.build();
 		siteHeader.createAll();
 		build.mainContainer();
+		sidebarMenu.createAll();
 
 		intro.createAll();
 		sistemas.createAll();

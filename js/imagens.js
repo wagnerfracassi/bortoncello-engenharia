@@ -1,6 +1,9 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => meta.onLoad());
+document.addEventListener("DOMContentLoaded", async () => {
+	await loadData();
+	meta.onLoad();
+});
 
 const meta = {
 	onLoad() {
@@ -10,6 +13,7 @@ const meta = {
 		persistentWhatsapp.build();
 		siteHeader.createAll();
 		build.mainContainer();
+		sidebarMenu.createAll();
 
 		header.createAll();
 		imagens.createAll();
@@ -87,11 +91,12 @@ const imagens = {
 			card.dataset.categoria = categoria;
 
 			const imageContainer = document.createElement("div");
-			imageContainer.classList.add("imageCardContainer");
 			const imgAntes = build.img(antes);
 			const imgDepois = build.img(depois);
-			imgDepois.classList.add("after");
 			const imgSlider = document.createElement("div");
+			imageContainer.classList.add("imageCardContainer");
+			imgAntes.classList.add("unselectable");
+			imgDepois.classList.add("unselectable", "after");
 			imgSlider.classList.add("imageCardSlider");
 
 			const cardLabel = document.createElement("div");
@@ -110,6 +115,9 @@ const imagens = {
 	inicializarDrag(container, slider, afterImage) {
 		let isDragging = false;
 		let containerRect;
+		let isHorizontalDrag = false;
+		let startX = 0;
+		let startY = 0;
 
 		const updateSliderPosition = (clientX) => {
 			containerRect = container.getBoundingClientRect();
@@ -124,8 +132,13 @@ const imagens = {
 		};
 
 		const startDrag = (e) => {
+			if (e.type === "touchstart") {
+				startX = e.touches[0].clientX;
+				startY = e.touches[0].clientY;
+				isHorizontalDrag = false;
+			}
+
 			isDragging = true;
-			e.preventDefault();
 
 			container.classList.add("dragging");
 			slider.classList.add("dragging");
@@ -142,16 +155,40 @@ const imagens = {
 
 		const onDrag = (e) => {
 			if (!isDragging) return;
-			e.preventDefault();
 
-			const clientX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
-			updateSliderPosition(clientX);
+			if (e.type === "touchmove") {
+				const currentX = e.touches[0].clientX;
+				const currentY = e.touches[0].clientY;
+
+				const diffX = Math.abs(currentX - startX);
+				const diffY = Math.abs(currentY - startY);
+
+				// Decide se é drag horizontal
+				if (!isHorizontalDrag) {
+					if (diffX > diffY && diffX > 5) {
+						isHorizontalDrag = true;
+					} else {
+						// gesto vertical → libera scroll
+						return;
+					}
+				}
+
+				// Só bloqueia scroll depois de confirmar drag horizontal
+				e.preventDefault();
+				updateSliderPosition(currentX);
+				return;
+			}
+
+			// Mouse (desktop)
+			e.preventDefault();
+			updateSliderPosition(e.clientX);
 		};
 
 		const stopDrag = () => {
 			if (!isDragging) return;
 
 			isDragging = false;
+			isHorizontalDrag = false;
 
 			container.classList.remove("dragging");
 			slider.classList.remove("dragging");
@@ -258,7 +295,6 @@ const imagens = {
 		if (mapeamento[filtroNormalizado]) return mapeamento[filtroNormalizado];
 		return null;
 	},
-
 	verificarFiltroInicial() {
 		const filtro = this.extrairFiltroDaURL();
 		if (!filtro) return;
