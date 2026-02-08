@@ -1278,7 +1278,7 @@ label {
 		margin-inline: 0.2rem !important;
 	}
 	h2 {
-		font-size: clamp(1.2rem, 1.4rem, 1.4rem);
+		font-size: clamp(1.2rem, 1.3rem, 1.4rem);
 		letter-spacing: 0.2rem;
 	}
 	h3 {
@@ -1583,3 +1583,4 @@ label {
 	outline: 1px solid red;
 }
  */
+
