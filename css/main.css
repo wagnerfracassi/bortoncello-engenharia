@@ -1559,7 +1559,9 @@ label {
 	.imagensHeaderContainer h3 {
 		text-align: center;
 	}
-
+	.galeriaDeImagensContainer {
+		padding-inline: 1rem;
+	}
 	.faleConosco {
 		margin-top: var(--page-header-height);
 		padding: 0;
