@@ -93,37 +93,57 @@ const intro = {
 		const container = document.createElement("div");
 		container.classList.add("swiperContainer");
 
-		const bannersContainer = document.getElementById("bannersContainer");
-		this.initCarousel(bannersContainer);
+		this.initCarousel();
 
-		const leftArrow = this.createArrowButton("left", () => this.onArrowClick("left"));
-		const rightArrow = this.createArrowButton("right", () => this.onArrowClick("right"));
+		const leftArrow = this.createArrowButton("left");
+		const rightArrow = this.createArrowButton("right");
 		container.append(leftArrow, rightArrow);
 		parent.append(container);
 	},
-	createArrowButton(side, onClick) {
+	createArrowButton(direction) {
 		const button = document.createElement("button");
 		button.classList.add("arrow");
-		if (side === "left") button.classList.add("arrowLeft");
+		if (direction === "left") button.classList.add("arrowLeft");
 		button.dataset.carouselControl = "true";
-		button.setAttribute("aria-label", `Slide ${side === "left" ? "anterior" : "próximo"}`);
-		button.addEventListener("click", onClick);
+		button.setAttribute("aria-label", `Slide ${direction === "left" ? "anterior" : "próximo"}`);
+		button.addEventListener("click", () => this.onArrowClick(direction));
 		return button;
 	},
-	initCarousel(bannersContainer) {
-		const banners = [...bannersContainer.children];
+	initCarousel() {
+		this.currentIndex = 1;
+		const bannersContainer = document.getElementById("bannersContainer");
+		bannersContainer.dataset.index = this.currentIndex;
 
-		const firstClone = banners[0].cloneNode(true);
-		const lastClone = banners[banners.length - 1].cloneNode(true);
+		const firstClone = bannersContainer.firstChild.cloneNode(true);
+		const lastClone = bannersContainer.lastChild.cloneNode(true);
 
 		bannersContainer.prepend(lastClone);
 		bannersContainer.append(firstClone);
 
-		this.currentIndex = 1;
+		this.setBannerParameters();
+		this.initAccessibility();
+	},
+	updateCarousel(index) {
+		this.currentIndex += index;
 		bannersContainer.dataset.index = this.currentIndex;
 
-		this.updateTransform(bannersContainer);
-		this.initAccessibility(bannersContainer);
+		this.setBannerParameters(this.currentIndex);
+	},
+	setBannerParameters() {
+		const bannersContainer = document.getElementById("bannersContainer");
+		const {children} = bannersContainer;
+
+		Object.entries(children).forEach(([index, banner]) => {
+			banner.dataset.index = index;
+			banner.style.transition = "transform 0.5s ease";
+			setTransform(banner);
+		});
+
+		function setTransform(banner) {
+			const index = document.getElementById("bannersContainer").dataset.index;
+			const value = 100 * Number(index) * -1;
+			banner.style.transform = `translateX(${value}%)`;
+		}
 	},
 	onArrowClick(side) {
 		const bannersContainer = document.getElementById("bannersContainer");
@@ -131,48 +151,52 @@ const intro = {
 		bannersContainer.dataset.animating = "1";
 
 		const direction = side === "right" ? 1 : -1;
-		this.currentIndex += direction;
-		bannersContainer.dataset.index = this.currentIndex;
-
-		this.updateTransform(bannersContainer);
-
-		bannersContainer.style.transition = "transform 0.5s ease";
+		intro.updateCarousel(direction);
 
 		bannersContainer.addEventListener(
 			"transitionend",
 			() => {
-				bannersContainer.style.transition = "none";
-
-				const totalSlides = bannersContainer.children.length;
-				const realSlides = totalSlides - 2;
-
-				if (this.currentIndex >= totalSlides - 1) {
-					this.currentIndex = 1;
-				} else if (this.currentIndex <= 0) {
-					this.currentIndex = realSlides;
-				}
-
-				bannersContainer.dataset.index = this.currentIndex;
-				this.updateTransform(bannersContainer);
 				bannersContainer.dataset.animating = "0";
-				this.updateSlideAccessibility();
+				intro.updateSlideAccessibility();
+				if (this.isFirstOrLast()) this.processFirstOrLast();
 			},
 			{once: true},
 		);
 	},
-	updateTransform(bannersContainer) {
-		const translateX = -this.currentIndex * 100;
-		bannersContainer.style.transform = `translateX(${translateX}vw)`;
-		this.updateSlideAccessibility();
-	},
-	initAccessibility(bannersContainer) {
-		const allFocusables = bannersContainer.querySelectorAll("a, button, input, textarea, select");
-		allFocusables.forEach((element) => {
-			if (element.dataset.carouselControl !== "true") {
-				element.setAttribute("tabindex", "-1");
-			}
-		});
+	isFirstOrLast() {
+		const bannersContainer = document.getElementById("bannersContainer");
+		const maxIndex = bannersContainer.children.length - 1;
+		const index = this.currentIndex;
 
+		if (index !== 0 && index !== maxIndex) return false;
+
+		return true;
+	},
+	processFirstOrLast() {
+		const bannersContainer = document.getElementById("bannersContainer");
+		const banners = [...bannersContainer.children];
+
+		const {currentIndex} = this;
+
+		// Último índice, clone do primeiro
+		if (currentIndex !== 0) {
+			banners.forEach((banner) => (banner.style.transition = "none"));
+			banners.forEach((banner) => (banner.style.transform = "translateX(-100%)"));
+			this.currentIndex = 1;
+			return;
+		}
+		// Primeiro índice, clone do último
+		if (currentIndex === 0) {
+			banners.forEach((banner) => (banner.style.transition = "none"));
+			banners.forEach((banner) => (banner.style.transform = "translateX(-400%)"));
+			this.currentIndex = 4;
+			return;
+		}
+	},
+	initAccessibility() {
+		const bannersContainer = document.getElementById("bannersContainer");
+		const allFocusables = bannersContainer.querySelectorAll("a, button");
+		allFocusables.forEach((element) => element.setAttribute("tabindex", "-1"));
 		this.updateSlideAccessibility();
 	},
 	updateSlideAccessibility() {
@@ -182,7 +206,7 @@ const intro = {
 		slides.forEach((slide, index) => {
 			const isActive = index === this.currentIndex;
 			slide.setAttribute("aria-hidden", !isActive);
-			const focusables = slide.querySelectorAll("a, button, input, textarea, select");
+			const focusables = slide.querySelectorAll("a, button");
 
 			focusables.forEach((element) => {
 				if (element.dataset.carouselControl === "true") return;

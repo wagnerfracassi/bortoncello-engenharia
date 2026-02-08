@@ -13,6 +13,7 @@ const meta = {
 		persistentWhatsapp.build();
 		siteHeader.createAll();
 		build.mainContainer();
+		sidebarMenu.createAll();
 
 		intro.createAll();
 		sistemas.createAll();

@@ -87,6 +87,10 @@
 		"whiteLogo": {
 			"src": "assets/icons/logo_white.png",
 			"alt": "Logo Bortoncello Engenharia"
+		},
+		"sidebarButton": {
+			"src": "assets/icons/menuBranco.webp",
+			"alt": "Botão da barra lateral"
 		}
 	},
 	"external": {

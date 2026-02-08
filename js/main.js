@@ -2,7 +2,7 @@
 
 const helper = {
 	isMobileScreen() {
-		return window.matchMedia("(max-width: 1024px").matches;
+		return window.matchMedia("(max-width: 1024px)").matches;
 	},
 };
 
@@ -95,6 +95,7 @@ const build = {
 		img.src = src;
 		img.alt = alt;
 		img.classList.add("unselectable");
+		img.draggable = false;
 		img.loading = "lazy";
 		if (imgClass) img.classList.add(imgClass);
 		return img;
@@ -213,6 +214,8 @@ const siteHeader = {
 		headerDiv.append(buttonsDiv);
 	},
 	createWhatsapp() {
+		if (helper.isMobileScreen()) return;
+
 		const buttonDiv = document.getElementById("header");
 		const {text, icon, link} = textLibrary.header.whatsapp;
 		const a = build.a(text, icon, link, true);
@@ -400,20 +403,24 @@ const sidebarMenu = {
 		this.swipeToOpen();
 	},
 	createSidebarButton() {
-		const width = window.getComputedStyle(document.getElementById("body")).width;
-		if (parseFloat(width) > 768) return;
+		if (!helper.isMobileScreen()) return;
 
 		const header = document.getElementById("header");
-		const sidebarButton = document.createElement("button");
-		const img = document.createElement("img");
+
+		const sidebarButton = build.button();
+		const icon = iconLibrary.internal.sidebarButton;
+		const img = build.img(icon);
 		sidebarButton.append(img);
 		header.append(sidebarButton);
 
 		sidebarButton.classList.add("sidebarButton", "unselectable");
-		sidebarButton.addEventListener("click", () => sidebarMenu.toggle());
-		img.src = iconLibrary.sidebarButton.src;
-		img.id = "openMenuImg";
-		sidebarButton.id = "openMenuButton";
+		sidebarButton.addEventListener("click", () => {
+			sidebarMenu.toggle();
+		});
+		sidebarButton.addEventListener("touchstart", (e) => {
+			e.preventDefault();
+			sidebarMenu.toggle();
+		});
 	},
 	createSidebarHeader() {
 		const sidebar = document.getElementById("sidebar");
@@ -479,7 +486,7 @@ const eventListeners = {
 			if (event.target === openButton) return;
 			if (event.target === openImg) return;
 
-			sidebar.classList.remove("activeSidebar");
+			sidebarMenu.close();
 		});
 	},
 	horizontalSwipe(nodeId, leftToRight, rightToLeft) {

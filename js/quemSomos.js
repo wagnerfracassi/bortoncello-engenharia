@@ -13,6 +13,7 @@ const meta = {
 		persistentWhatsapp.build();
 		siteHeader.createAll();
 		build.mainContainer();
+		sidebarMenu.createAll();
 
 		quemSomos.createAll();
 		premios.createAll();
@@ -96,11 +97,15 @@ const premios = {
 		const bottomContainer = document.createElement("div");
 		bottomContainer.classList.add("premiosContainerBottom");
 		const frag = document.createDocumentFragment();
-		for (const {header, text} of content) {
+		for (const {header, text, textList} of content) {
 			const innerContainer = document.createElement("div");
 			const h3 = build.h3(header);
-			const p = build.p(text);
-			innerContainer.append(h3, p);
+
+			const isSimpleText = text ? true : false;
+			const content = isSimpleText ? build.p(text) : build.textList(iconLibrary.internal.checkBranco, textList);
+			if (!isSimpleText) content.classList.add("textListContainer", "whiteText");
+
+			innerContainer.append(h3, content);
 			frag.append(innerContainer);
 		}
 		bottomContainer.append(frag);

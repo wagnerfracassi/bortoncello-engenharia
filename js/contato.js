@@ -41,6 +41,7 @@ const meta = {
 		persistentWhatsapp.build();
 		siteHeader.createAll();
 		build.mainContainer();
+		sidebarMenu.createAll();
 
 		faleConosco.createAll();
 		googleMaps.createAll();
@@ -187,4 +188,3 @@ const googleMaps = {
 		parent.append(iframe);
 	},
 };
-

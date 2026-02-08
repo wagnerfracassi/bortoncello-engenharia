@@ -227,7 +227,13 @@
 				},
 				{
 					"header": "Valores",
-					"text": "- Compromisso em proteger pessoas e suas histórias\n- Eficiência que gera confiança em cada entrega\n- Cuidado humano aliado à excelência técnica\n- Transparência que fortalece relações duradouras\n- Inovação que prolonga a vida dos espaços"
+					"textList": [
+						"Compromisso em proteger pessoas e suas histórias",
+						"Eficiência que gera confiança em cada entrega",
+						"Cuidado humano aliado à excelência técnica",
+						"Transparência que fortalece relações duradouras",
+						"Inovação que prolonga a vida dos espaços"
+					]
 				}
 			]
 		},
