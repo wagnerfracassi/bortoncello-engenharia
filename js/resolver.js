@@ -7,16 +7,18 @@ window.contactLibrary = {};
 window.textLibrary = {};
 
 async function loadData() {
-	const [icons, images, links, contacts, texts] = await Promise.all([
-		fetch("json/icon.json").then((response) => response.json()),
-		fetch("json/image.json").then((response) => response.json()),
-		fetch("json/link.json").then((response) => response.json()),
-		fetch("json/contact.json").then((response) => response.json()),
-		fetch("json/text.json").then((response) => response.json()),
+	const [icons, images, imageGalery, links, contacts, texts] = await Promise.all([
+		fetch("data/icon.json").then((response) => response.json()),
+		fetch("data/image.json").then((response) => response.json()),
+		fetch("data/galeriaDeImagens.json").then((response) => response.json()),
+		fetch("data/link.json").then((response) => response.json()),
+		fetch("data/contact.json").then((response) => response.json()),
+		fetch("data/text.json").then((response) => response.json()),
 	]);
 
 	iconLibrary = resolver.resolveDeep(icons);
 	imageLibrary = resolver.resolveDeep(images);
+	imageLibrary.imagens = resolver.resolveDeep(imageGalery);
 	linkLibrary = resolver.resolveDeep(links);
 	contactLibrary = resolver.resolveDeep(contacts);
 	textLibrary = resolver.resolveDeep(texts);
