@@ -1,9 +1,9 @@
 ---
 categoria: caixasDagua
 titulo: "Projeto Caixa D'água 4"
-antes: /assets/images/galeriaImagens/caixaDagua4A.webp
+antes: assets/images/galeriaImagens/caixaDagua4A.webp
 alt_antes: "Imagem de caixa d'água antes"
-depois: /assets/images/galeriaImagens/caixaDagua4D.webp
+depois: assets/images/galeriaImagens/caixaDagua4D.webp
 alt_depois: "Imagem de caixa d'água depois"
 ordem: 2
 data: 2024-01-15

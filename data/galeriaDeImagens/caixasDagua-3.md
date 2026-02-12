@@ -1,9 +1,9 @@
 ---
 categoria: caixasDagua
 titulo: "Projeto Caixa D'água 33"
-antes: /assets/images/galeriaImagens/caixaDagua33A.webp
+antes: assets/images/galeriaImagens/caixaDagua33A.webp
 alt_antes: "Imagem de caixa d'água antes"
-depois: /assets/images/galeriaImagens/caixaDagua33D.webp
+depois: assets/images/galeriaImagens/caixaDagua33D.webp
 alt_depois: "Imagem de caixa d'água depois"
 ordem: 3
 data: 2024-01-15
