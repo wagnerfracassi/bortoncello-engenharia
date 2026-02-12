@@ -9,6 +9,7 @@ backend:
       uploadMedia: "Upload: {{path}}"
       deleteMedia: "Delete: {{path}}"
 
+site_domain: https://bortoncello-engenharia-auth.netlify.app/
 media_folder: "assets/images/galeriaImagens"
 public_folder: "/assets/images/galeriaImagens"
 
@@ -66,3 +67,4 @@ collections:
           widget: "number"
           default: 99
           value_type: "int"
+
