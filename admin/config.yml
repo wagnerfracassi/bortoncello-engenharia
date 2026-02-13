@@ -24,11 +24,15 @@ collections:
 
      fields:
         # CATEGORIA (dropdown)
-        - label: "Categoria"
-          name: "categoria"
-          widget: "select"
-          options: ["lajes", "caixasDagua", "marquises"]
-          required: true
+   - label: "Categoria"
+     name: "categoria"
+     widget: "select"
+     required: true
+     options:
+       - { label: "Lajes", value: "lajes" }
+       - { label: "Caixas d'Água", value: "caixasDagua" }
+       - { label: "Marquises", value: "marquises" }
+
 
         # TÍTULO (opcional)
         - label: "Título do Projeto"
@@ -68,6 +72,3 @@ collections:
           widget: "number"
           default: 99
           value_type: "int"
-
-
-
