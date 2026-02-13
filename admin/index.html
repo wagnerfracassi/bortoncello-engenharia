@@ -6,73 +6,31 @@
 		<title>Gerenciar Projetos - Antes/Depois</title>
 
 		<link rel="stylesheet" href="../css/main.css?v=1.0" />
-		<!-- Netlify Identity -->
-		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-		<!-- Script do Decap CMS -->
-		<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 	</head>
 
 	<body>
+		<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
 		<script>
-			CMS.registerPreviewTemplate("projetos", ({entry}) => {
-				const before = entry.getIn(["data", "before"]);
-				const after = entry.getIn(["data", "after"]);
+			CMS.registerPreviewTemplate("galeriaDeImagens", ({entry}) => {
+				const before = entry.getIn(["data", "antes"]);
+				const after = entry.getIn(["data", "depois"]);
 
 				return `
-				<div class="imageCard boxShadow visible" style="width:400px;margin:20px auto;">
-					<div class="imageCardContainer" id="preview-container">
-						<img src="${before || ""}" draggable="false" class="unselectable">
-						<img src="${after || ""}" draggable="false" class="unselectable after">
-						<div class="imageCardSlider"></div>
-					</div>
-					<div class="imageCardLabel">
-						<p>Antes</p>
-						<p>Depois</p>
-					</div>
-				</div>`;
-			});
-		</script>
-
-		<script>
-			document.addEventListener("DOMContentLoaded", () => {
-				document.addEventListener("mousedown", startDrag);
-				document.addEventListener("touchstart", startDrag);
-
-				function startDrag(e) {
-					const container = e.target.closest("#preview-container");
-					if (!container) return;
-
-					const afterImg = container.querySelector(".after");
-					const slider = container.querySelector(".imageCardSlider");
-
-					function move(clientX) {
-						const rect = container.getBoundingClientRect();
-						let offset = clientX - rect.left;
-						offset = Math.max(0, Math.min(offset, rect.width));
-						const percent = (offset / rect.width) * 100;
-
-						afterImg.style.clipPath = `inset(0 0 0 ${percent}%)`;
-						slider.style.left = `${percent}%`;
-					}
-
-					function onMove(ev) {
-						const clientX = ev.touches ? ev.touches[0].clientX : ev.clientX;
-						move(clientX);
-					}
-
-					function stop() {
-						document.removeEventListener("mousemove", onMove);
-						document.removeEventListener("touchmove", onMove);
-						document.removeEventListener("mouseup", stop);
-						document.removeEventListener("touchend", stop);
-					}
-
-					document.addEventListener("mousemove", onMove);
-					document.addEventListener("touchmove", onMove);
-					document.addEventListener("mouseup", stop);
-					document.addEventListener("touchend", stop);
-				}
+          <div class="imageCard boxShadow visible" style="width:400px;margin:20px auto;">
+            <div class="imageCardContainer">
+              <img src="${before || ""}" draggable="false" class="unselectable">
+              <img src="${after || ""}" draggable="false" class="unselectable after">
+              <div class="imageCardSlider"></div>
+            </div>
+            <div class="imageCardLabel">
+              <p>Antes</p>
+              <p>Depois</p>
+            </div>
+          </div>
+        `;
 			});
 		</script>
 	</body>
