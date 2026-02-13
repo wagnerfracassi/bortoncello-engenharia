@@ -14,6 +14,9 @@ publish_mode: editorial_workflow
 media_folder: "assets/images/galeriaImagens"
 public_folder: "/assets/images/galeriaImagens"
 
+editor:
+  preview: false
+
 collections:
    - name: "galeriaDeImagens" # Nome interno
      label: "Imagens Antes/Depois"
@@ -71,3 +74,4 @@ collections:
           widget: "number"
           default: 99
           value_type: "int"
+
