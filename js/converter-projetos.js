@@ -7,6 +7,7 @@ const projetosConvertidos = {
 	lajes: [],
 	caixasDagua: [],
 	marquises: [],
+	tampas: [],
 };
 
 if (!fs.existsSync(pastaProjetos)) {

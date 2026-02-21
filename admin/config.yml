@@ -14,9 +14,6 @@ publish_mode: editorial_workflow
 media_folder: "assets/images/galeriaImagens"
 public_folder: "/assets/images/galeriaImagens"
 
-editor:
-  preview: false
-
 collections:
    - name: "galeriaDeImagens" # Nome interno
      label: "Imagens Antes/Depois"
@@ -35,6 +32,7 @@ collections:
              - {label: "Lajes", value: "lajes"}
              - {label: "Caixas d'Água", value: "caixasDagua"}
              - {label: "Marquises", value: "marquises"}
+             - {label: "Tampas", value: "tampas"}
 
         # TÍTULO (opcional)
         - label: "Título do Projeto"
@@ -74,4 +72,3 @@ collections:
           widget: "number"
           default: 99
           value_type: "int"
-

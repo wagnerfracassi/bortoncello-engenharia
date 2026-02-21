@@ -89,6 +89,12 @@
 			"alt": "Imagem de tampa produzida pela Bortoncello"
 		}
 	},
+	"contato": {
+		"intro": {
+			"src": "assets/images/contatoIntro.webp",
+			"alt": "Imagem representativa"
+		}
+	},
 	"clientes": [
 		{"src": "assets/customers/petrobras.webp", "alt": "Logo Petrobrás"},
 		{"src": "assets/customers/ufrgs.webp", "alt": "Logo UFRGS"},

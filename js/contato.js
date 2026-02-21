@@ -43,11 +43,46 @@ const meta = {
 		build.mainContainer();
 		sidebarMenu.createAll();
 
+		intro.createAll();
 		faleConosco.createAll();
 		googleMaps.createAll();
 
 		siteFooter.createAll();
 		eventListeners.createInitial();
+	},
+};
+
+const intro = {
+	createAll() {
+		this.createSection();
+		this.createImage();
+		this.createContent();
+	},
+	createSection() {
+		const divId = "solucoesIntro";
+		const div = build.sectionDiv(divId);
+		div.classList.add(divId);
+	},
+	createImage() {
+		const parent = document.getElementById("solucoesIntroContainer");
+		const container = document.createElement("div");
+		container.classList.add("introImgContainer", "imgFilter", "imgFilterSmall", "solucoesImageContainer");
+
+		parent.append(container);
+
+		const img = build.img(imageLibrary.contato.intro);
+		container.append(img);
+	},
+	createContent() {
+		const parent = document.getElementById("solucoesIntroContainer");
+		const container = document.createElement("div");
+		container.classList.add("introTextContainer", "solucoesTextContainer");
+
+		const {header, subheader} = textLibrary.contato.intro;
+		const h1 = build.h1(header);
+		const h2 = build.h2(subheader);
+		container.append(h1, h2);
+		parent.append(container);
 	},
 };
 

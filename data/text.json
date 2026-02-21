@@ -20,7 +20,8 @@
 				"dropdown": [
 					{"text": "Lajes", "link": {"$ref": "linkLibrary.internal.imagens", "hash": "lajes"}},
 					{"text": "Caixas d'Água", "link": {"$ref": "linkLibrary.internal.imagens", "hash": "caixasDagua"}},
-					{"text": "Marquises", "link": {"$ref": "linkLibrary.internal.imagens", "hash": "marquises"}}
+					{"text": "Marquises", "link": {"$ref": "linkLibrary.internal.imagens", "hash": "marquises"}},
+					{"text": "Tampas", "link": {"$ref": "linkLibrary.internal.imagens", "hash": "tampas"}}
 				]
 			},
 			{"text": "Contato", "link": {"$ref": "linkLibrary.internal.contato"}}
@@ -383,10 +384,15 @@
 			{"text": "Todas", "filtro": "todas"},
 			{"text": "Lajes e Coberturas", "filtro": "lajes"},
 			{"text": "Caixas d'Água", "filtro": "caixasDagua"},
-			{"text": "Marquises", "filtro": "marquises"}
+			{"text": "Marquises", "filtro": "marquises"},
+			{"text": "Tampas", "filtro": "tampas"}
 		]
 	},
 	"contato": {
+		"intro": {
+			"header": "Contato",
+			"subheader": "Entre em contato conosco através de nossos canais oficiais"
+		},
 		"faleConosco": {
 			"smallHeader": "Fale com a gente",
 			"header": "Solicite uma visita técnica gratuita",

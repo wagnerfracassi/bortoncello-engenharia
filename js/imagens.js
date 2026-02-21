@@ -65,6 +65,7 @@ const imagens = {
 		LAJES: "lajes",
 		CAIXAS_DAGUA: "caixasDagua",
 		MARQUISES: "marquises",
+		TAMPAS: "tampas",
 	},
 	createAll() {
 		this.createSection();
@@ -288,6 +289,7 @@ const imagens = {
 			lajes: this.CATEGORIAS.LAJES,
 			marquises: this.CATEGORIAS.MARQUISES,
 			caixasdagua: this.CATEGORIAS.CAIXAS_DAGUA,
+			tampas: this.CATEGORIAS.TAMPAS,
 			todas: this.CATEGORIAS.TODAS,
 		};
 		const filtroNormalizado = hash.toLowerCase().replace(/'/g, "").replace(/\s+/g, "");
