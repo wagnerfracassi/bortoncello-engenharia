@@ -653,18 +653,17 @@ label {
 }
 .cartaoClientes {
 	display: flex;
-	flex-wrap: nowrap;
-	overflow-x: auto;
+	flex-wrap: wrap;
+	justify-content: center;
 	gap: 1rem;
 	margin-block: 3rem;
-	padding-inline: 1rem;
 }
 .cartaoClientes div {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
-	min-width: 12rem;
+	width: 12rem;
 	height: 8rem;
 
 	background-color: var(--bright-white);
@@ -1453,8 +1452,20 @@ label {
 	.clientesContainer h2 {
 		text-align: center;
 	}
+	.cartaoClientes {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		gap: 1rem;
+		margin-block: 3rem 0;
+		padding: 2rem 1rem;
+		justify-content: left;
+	}
 	.cartaoClientes * {
 		overflow-y: hidden;
+	}
+	.cartaoClientes div {
+		min-width: 12rem;
 	}
 
 	.nossoTrabalho {
@@ -1575,9 +1586,6 @@ label {
 	}
 	.textListContainer {
 		margin-block: 1rem 0;
-	}
-	.cartaoClientes {
-		padding-block: 1rem;
 	}
 
 	.imagensHeaderContainer h3 {
